@@ -1,0 +1,9 @@
+
+.contact_us{
+  height: calc(100vh - 50px);
+  overflow: auto;
+}
+.sign_up{
+  height: calc(100vh - 50px);
+  overflow: auto;
+}
