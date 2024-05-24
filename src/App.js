@@ -1,6 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Faq from "./Faq";
 import ContactUs from "./ContactUs";
@@ -11,32 +10,21 @@ import LogIn from "./LogIn";
 function App() {
   return (
 
-  
-    <>
-    <ToastContainer
-      position="top-center"
-      autoClose={3000} // Auto close after 5 seconds
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-      theme='dark'
-    />
+    <BrowserRouter>
     <Routes>
-      <Route path="/" element={<ContactUs />} />
-      <Route path="/faq" element={<Faq />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/login" element={<LogIn />} />
+      <Route path="/" element={<Faq />}>
+        <Route index element={<Faq/>} />
+        <Route path="contactus" element={<ContactUs />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="login" element={<LogIn />} />
+      </Route>
     </Routes>
-  </>
-   
+  </BrowserRouter>
   );
 }
 
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
 //<ContactUs/>
    //<Faq/>
   // <SignUp/>  
